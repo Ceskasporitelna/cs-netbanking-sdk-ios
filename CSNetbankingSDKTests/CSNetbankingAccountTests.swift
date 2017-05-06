@@ -583,7 +583,7 @@ class CSNetbankingAccountTests: CSNetbankingTest
                     XCTAssertTrue( false, "Error: \(info)" )
                 }
                 else {
-                    XCTAssertTrue( false, "Error: \(error)" );
+                    XCTAssertTrue( false, "Error: \(String(describing: error))" );
                 }
             }
         }
@@ -893,7 +893,7 @@ class CSNetbankingAccountTests: CSNetbankingTest
                 XCTAssertTrue( self.isValidPdfDocumentAtFilePath(pdfFileName: pdfFileName))
                 expectation.fulfill()
                 
-            case .failure(let error):
+            case .failure( _):
                 verifyResult = true
             }
         }
@@ -906,7 +906,7 @@ class CSNetbankingAccountTests: CSNetbankingTest
                     XCTAssertTrue( false, "Error: \(info)" )
                 }
                 else {
-                    XCTAssertTrue( false, "Error: \(error)" );
+                    XCTAssertTrue( false, "Error: \(String(describing: error))" );
                 }
             }
         }

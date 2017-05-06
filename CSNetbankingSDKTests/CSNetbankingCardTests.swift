@@ -546,7 +546,7 @@ class CSNetbankingCardTests: CSNetbankingTest
                     XCTAssertTrue( false, "Error: \(info)" )
                 }
                 else {
-                    XCTAssertTrue( false, "Error: \(error)" );
+                    XCTAssertTrue( false, "Error: \(String(describing: error))" );
                 }
             }
         }
@@ -899,7 +899,7 @@ class CSNetbankingCardTests: CSNetbankingTest
                     XCTAssertTrue( false, "Error: \(info)" )
                 }
                 else {
-                    XCTAssertTrue( false, "Error: \(error)" );
+                    XCTAssertTrue( false, "Error: \(String(describing: error))" );
                 }
             }
         }

@@ -70,7 +70,7 @@ class JudgeSession
         //There is a longer timeout because Heroku dino needs some time to wind-up
         xcTestCase.waitForExpectations( timeout: 40.0, handler: { error in
             if ( error != nil ) {
-                XCTFail("Expectation Failed with error: \(error)." );
+                XCTFail("Expectation Failed with error: \(String(describing: error))." );
             }
         })
     }

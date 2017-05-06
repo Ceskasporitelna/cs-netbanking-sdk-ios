@@ -226,7 +226,7 @@ class CSNetbankingSecuritiesTests: CSNetbankingTest
                     XCTAssertTrue( false, "Error: \(info)" )
                 }
                 else {
-                    XCTAssertTrue( false, "Error: \(error)" );
+                    XCTAssertTrue( false, "Error: \(String(describing: error))" );
                 }
             }
         }
