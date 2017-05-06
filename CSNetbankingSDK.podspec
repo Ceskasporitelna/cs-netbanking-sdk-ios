@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "CSNetbankingSDK"
-  s.version      = "0.3.2"
+  s.version      = "1.0.0"
   s.source       = {:tag => "v#{s.version}", :git => "https://github.com/Ceskasporitelna/cs-netbanking-sdk-ios.git" }
   s.summary      = "Netbanking SDK allows you to interact with the banking backend of Česká spořitelna a.s."
   s.description  = <<-DESC
