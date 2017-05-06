@@ -1,0 +1,22 @@
+language: objective-c
+cache:
+ - cocoapods
+ - bundler
+
+osx_image: xcode8.3
+
+before_install:
+    - echo -e "machine github.com\n  login $CI_USER_TOKEN" >> ~/.netrc
+    - bundle install
+    - carthage bootstrap
+
+before_script:
+    - export TZ=Europe/Prague
+
+script:
+    - git config --global user.name "CSAS Developers"
+    - git config --global user.email developers@csas.cz
+    - bundle exec fastlane ci
+
+after_success:
+    - sh ./fastlane/sign.sh

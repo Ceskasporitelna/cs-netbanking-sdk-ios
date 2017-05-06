@@ -1,0 +1,7 @@
+Carthage/Build
+CSNetbankingSDK.xcworkspace/xcuserdata
+CSNetbankingSDK.xcodeproj/xcuserdata
+CSNetbankingSDK.xcodeproj/project.xcworkspace/xcuserdata
+Carthage
+fastlane/test_output
+Cartfile.resolved
