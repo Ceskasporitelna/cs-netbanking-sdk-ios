@@ -100,7 +100,7 @@ public class InsurancesContractResource: NetbankingInstanceResource, GetEnabled,
     {
         let customPath = self.path.replacingOccurrences(of: "/cz/my/", with: "/my/")
         if let range = customPath.range(of: "/\(self.id)") {
-            let customResource = InsurancesContractResource(id: self.id, path: customPath.substring(to: (range.lowerBound)), client: self.client)
+            let customResource = InsurancesContractResource(id: self.id, path: String(customPath[..<range.lowerBound]), client: self.client)
             ResourceUtils.CallUpdate(customResource, payload: request, transform: nil, callback: callback)
         }
         else {

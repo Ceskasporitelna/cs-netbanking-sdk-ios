@@ -15,7 +15,7 @@ public class NetbankingResource: Resource
 {
     public var customPath: String {
         if let range = self.path.range(of: "/my/" ) {
-            return self.path.substring(to: range.lowerBound ) + "/cz" + self.path.substring(from: range.lowerBound)
+            return String(self.path[..<range.lowerBound]) + "/cz" + String(self.path[range.lowerBound...])
         }
         else {
             return self.path

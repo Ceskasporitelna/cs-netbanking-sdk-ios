@@ -111,7 +111,24 @@ Export transaction history into signed PDF by calling the `export` method on [Ac
             });
 ```
 
-## 8\. List accounts reservations
+## 8\. List account transactions history
+
+List account transactions history by calling the `list` method on [AccountTransactionsHistoryResource](../CSNetbankingSDK/AccountTransactionsHistoryResource.swift) and passing it object with options as a parameter. See [AccountTransactionsHistoryParameters](.../CSNetbankingSDK/AccountTransactionsHistoryParameters.swift).
+
+```java
+
+    // Account transactions history
+    netbankingClient.accounts
+            .withId(id)
+            .transactionsHistory
+            .list(parameters, callback: {
+                transactions: CoreResult<PaginatedListResponse<AccountTransaction>> in
+                //Do something with transactions
+            });
+
+```
+
+## 9\. List accounts reservations
 
 List accounts reservations by getting the [AccountReservationsResource](../CSNetbankingSDK/AccountReservationsResource.swift) and then calling the `list` method. The method takes object with properties as a parameter and supports pagination. See [ReservationResponse](../CSNetbankingSDK/ReservationResponse.swift) for full response.
 
@@ -126,7 +143,7 @@ List accounts reservations by getting the [AccountReservationsResource](../CSNet
             });
 ```
 
-## 9\. Revolve loan disbursement
+## 10\. Revolve loan disbursement
 
 Revolve loan disbursement by getting the [AccountTransferResource](../CSNetbankingSDK/AccountTransferResource.swift) and then calling the `update` method on it. The method takes object with properties as a parameter. See all supported properties in [AccountTransferRequest](../CSNetbankingSDK/AccountTransferRequest.swift) and [AccountTransferResponse](../CSNetbankingSDK/AccountTransferResponse.swift) for full response.
 
@@ -141,7 +158,7 @@ Revolve loan disbursement by getting the [AccountTransferResource](../CSNetbanki
             });
 ```
 
-## 10\. List accounts repayments
+## 11\. List accounts repayments
 
 List accounts repayments by getting the [AccountRepaymentsResource](../CSNetbankingSDK/AccountRepaymentsResource.swift) and then calling the `list` method. For full response see [RepaymentResponse](../CSNetbankingSDK/RepaymentResponse.swift).
 
@@ -156,7 +173,7 @@ List accounts repayments by getting the [AccountRepaymentsResource](../CSNetbank
             });
 ```
 
-## 11\. List accounts statements
+## 12\. List accounts statements
 
 List accounts statements by getting the [AccountStatementsResource](../CSNetbankingSDK/AccountStatementsResource.swift) and then calling the `list` method. The method takes object with properties such as pageSize or sortBy as a parameter. See all supported parameters in [StatementsParameters](../CSNetbankingSDK/StatementsParameters.swift). For full response see [StatementResponse](../CSNetbankingSDK/StatementResponse.swift).
 
@@ -171,7 +188,7 @@ List accounts statements by getting the [AccountStatementsResource](../CSNetbank
             });
 ```
 
-## 12\. Download accounts statements
+## 13\. Download accounts statements
 
 Download accounts statement by getting the [AccountStatementsResource](../CSNetbankingSDK/AccountStatementsResource.swift) and then calling the `download` method on it. The method takes object with properties as a parameter. For all supported parameters see [DownloadStatementsParameters](../CSNetbankingSDK/DownloadStatementsParameters.swift).
 
@@ -186,7 +203,7 @@ Download accounts statement by getting the [AccountStatementsResource](../CSNetb
             });
 ```
 
-## 13\. List sub account statements
+## 14\. List sub account statements
 
 List sub accounts statements by getting the [SubAccountResource](../CSNetbankingSDK/StatementsResource.swift) and then calling the `list` method on it. The list method takes object with properties as a parameter. See all supported parameters in [ListParameters](../CSNetbankingSDK/Parameters.swift). For full response see [StatementResponse](../CSNetbankingSDK/StatementResponse.swift).
 
@@ -203,7 +220,7 @@ List sub accounts statements by getting the [SubAccountResource](../CSNetbanking
             });
 ```
 
-## 14\. Download sub account statements
+## 15\. Download sub account statements
 
 Download sub accounts statement by getting the [StatementsResource](../CSNetbankingSDK/StatementsResource.swift) and then calling the `download` method on it. The method takes object with properties as a parameter. For all supported parameters see [DownloadStatementsParameters](../CSNetbankingSDK/DownloadStatementsParameters.swift).
 
@@ -220,7 +237,7 @@ Download sub accounts statement by getting the [StatementsResource](../CSNetbank
             });
 ```
 
-## 15\. List accounts direct debits
+## 16\. List accounts direct debits
 
 List accounts direct debits by getting the [AccountDirectDebitsResource](../CSNetbankingSDK/AccountDirectDebitsResource.swift) and then calling the `list` method on it. The list method takes object with properties as a parameter. See all supported parameters in [DirectDebitsParameters](../CSNetbankingSDK/DirectDebitsParameters.swift). For full response see [DirectDebitsListResponse](../CSNetbankingSDK/DirectDebitsListResponse.swift).
 
@@ -232,7 +249,7 @@ List accounts direct debits by getting the [AccountDirectDebitsResource](../CSNe
             .list(DirectDebitsParameters parameters, CallbackWebApi<DirectDebitsListResponse> callback);
 ```
 
-## 16\. Create direct debit
+## 17\. Create direct debit
 
 Create direct debit by getting the [AccountDirectDebitsResource](../CSNetbankingSDK/AccountDirectDebitsResource.swift) and then calling the `create` method. The create method takes object with properties as a parameter. See [DirectDebit](../CSNetbankingSDK/DirectDebit.swift) for all supported parameters and [SignableDirectDebit](../CSNetbankingSDK/SignableDirectDebit.swift) for full response.
 
@@ -247,7 +264,7 @@ Create direct debit by getting the [AccountDirectDebitsResource](../CSNetbanking
             });
 ```
 
-## 17\. Get direct debit
+## 18\. Get direct debit
 
 You can get detail of the direct debit by calling the `withId` method on [AccountDirectDebitsResource](../CSNetbankingSDK/AccountDirectDebitsResource.swift) with id as a parameter and then calling the get method. For complete response see [DirectDebit](../CSNetbankingSDK/DirectDebit.swift).
 
@@ -263,7 +280,7 @@ You can get detail of the direct debit by calling the `withId` method on [Accoun
             });
 ```
 
-## 18\. Delete direct debit
+## 19\. Delete direct debit
 
 Delete direct debit by getting the [AccountDirectDebitResource](../CSNetbankingSDK/AccountDirectDebitResource.swift) and then calling the `delete` method.
 
@@ -279,7 +296,7 @@ Delete direct debit by getting the [AccountDirectDebitResource](../CSNetbankingS
             });
 ```
 
-## 19\. List standing orders
+## 20\. List standing orders
 
 List accounts standing orders by getting the [AccountStandingOrdersResource](../CSNetbankingSDK/AccountStandingOrdersResource.swift) and then calling the `list` method on it. The list method takes object with properties as a parameter. See all supported parameters in [StandingOrdersParameters](../CSNetbankingSDK/StandingOrdersParameters.swift). For full response see [StandingOrdersListResponse](../CSNetbankingSDK/StandingOrdersListResponse.swift).
 
@@ -291,7 +308,7 @@ List accounts standing orders by getting the [AccountStandingOrdersResource](../
             .list(StandingOrdersParameters parameters, CallbackWebApi<StandingOrdersListResponse> callback);
 ```
 
-## 20\. Create standing orders
+## 21\. Create standing orders
 
 Create standing order by getting the [AccountStandingOrdersResource](../CSNetbankingSDK/AccountStandingOrdersResource.swift) and then calling the `create` method. The create method takes object with properties as a parameter. See [CreateStandingOrderRequest](../CSNetbankingSDK/CreateStandingOrderRequest.swift) for all supported parameters and [StandingOrderResponse](../CSNetbankingSDK/StandingOrderResponse.swift) for full response.
 
@@ -306,7 +323,7 @@ Create standing order by getting the [AccountStandingOrdersResource](../CSNetban
             });
 ```
 
-## 21\. Get standing orders
+## 22\. Get standing orders
 
 You can get detail of the standing order by calling the `withId` method on [AccountStandingOrdersResource](../CSNetbankingSDK/AccountStandingOrdersResource.swift) with id as a parameter and then calling the get method. For complete response see [StandingOrder](../CSNetbankingSDK/StandingOrder.swift).
 
@@ -322,7 +339,7 @@ You can get detail of the standing order by calling the `withId` method on [Acco
             });
 ```
 
-## 22\. Delete standing orders
+## 23\. Delete standing orders
 
 Delete direct debit by getting the [AccountStandingOrderResource](../CSNetbankingSDK/AccountStandingOrderResource.swift) and then calling the `delete` method.
 
