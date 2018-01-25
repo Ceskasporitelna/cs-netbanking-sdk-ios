@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.1.0] - 2018-01-25
+
 ## Added
 - Account transactions history resource with paginated list
 
