@@ -588,6 +588,177 @@ class CSNetbankingAccountTests: CSNetbankingTest
             }
         }
     }
+    
+    //--------------------------------------------------------------------------
+    func testAccountTransactionsHistoryList()
+    {
+        self.judgeSession.setNextCase( caseId: "accounts.withId.transactionsHistory.list", xcTestCase: self)
+        
+        let expectation = self.expectation(description: "Response expectation")
+        
+        let parametres = AccountTransactionsHistoryParameters(pagination: Pagination(pageNumber: 0, pageSize: 2))
+        
+        parametres.dateStart = self.dateTimeFormatter.date(from: "2014-06-01T00:00:00+02:00")
+        parametres.dateEnd = self.dateTimeFormatter.date(from: "2014-06-30T00:00:00+02:00")
+        
+        var accountTransactionsHistoryList : PaginatedListResponse<AccountTransaction>? = nil
+        self.client.accounts.withId("CZ5508000000000379554193").transactionsHistory.list(parametres) { result in
+            switch ( result ) {
+            case .success( let list ):
+                accountTransactionsHistoryList = list
+                let transaction = accountTransactionsHistoryList?.items[0]
+                let accountParty = transaction?.accountParty
+                let amount = transaction?.amount
+                let amountSender = transaction?.amountSender
+                
+                XCTAssertEqual(accountParty?.accountNumber, "2812275553")
+                XCTAssertEqual(accountParty?.accountPrefix, "0")
+                XCTAssertEqual(accountParty?.bankCode, "0800")
+                XCTAssertEqual(accountParty?.bic, "GIBACZPX")
+                XCTAssertEqual(accountParty?.iban, "CZ2908000000002812275553")
+                XCTAssertEqual(accountParty?.partyInfo, "Petr Malý")
+                XCTAssertEqual(accountParty?.partyDescription, "2812275553/0800")
+                XCTAssertEqual(amount?.currency, "CZK")
+                XCTAssertEqual(amount?.precision, 2)
+                XCTAssertEqual(amount?.value, 100)
+                XCTAssertEqual(amountSender?.currency, "CZK")
+                XCTAssertEqual(amountSender?.precision, 2)
+                XCTAssertEqual(amountSender?.value, 100)
+                XCTAssertEqual(transaction?.bookingDate, self.dateTimeFormatter.date(from:  "2014-11-26T00:00:00+01:00" ))
+                XCTAssertEqual(transaction?.cardNumber, 0)
+                XCTAssertEqual(transaction?.constantSymbol, "0558")
+                XCTAssertEqual(transaction?.description, "domácí platba")
+                XCTAssertEqual(transaction?.descriptionEditable, "false")
+                XCTAssertEqual(transaction?.payeeNote, "note for payee")
+                XCTAssertEqual(transaction?.payerNote, "note for payer")
+                XCTAssertEqual(transaction?.specificSymbol, "55")
+                XCTAssertEqual(transaction?.transactionType, "54")
+                XCTAssertEqual(transaction?.valuationDate, self.dateTimeFormatter.date(from:  "2014-11-26T00:00:00+01:00" ))
+                XCTAssertEqual(transaction?.variableSymbol, "0000000009")
+                
+                expectation.fulfill()
+                
+            case .failure(_):
+                XCTFail()
+            }
+        }
+        
+        self.waitForExpectations(timeout: 40.0, handler:nil)
+    }
+    
+    //--------------------------------------------------------------------------
+    func testAccountTransactionsHistoryListPage_0()
+    {
+        self.judgeSession.setNextCase( caseId: "accounts.withId.transactionsHistory.list.page0", xcTestCase: self)
+        
+        let expectation = self.expectation(description: "Response expectation")
+        
+        let parametres = AccountTransactionsHistoryParameters(pagination: Pagination(pageNumber: 0, pageSize: 1))
+        
+        parametres.dateStart = self.dateTimeFormatter.date(from: "2014-06-01T00:00:00+02:00")
+        parametres.dateEnd = self.dateTimeFormatter.date(from: "2014-06-30T00:00:00+02:00")
+        
+        var accountTransactionsHistoryList : PaginatedListResponse<AccountTransaction>? = nil
+        self.client.accounts.withId("CZ5508000000000379554193").transactionsHistory.list(parametres) { result in
+            switch ( result ) {
+            case .success( let list ):
+                accountTransactionsHistoryList = list
+                let transaction = accountTransactionsHistoryList?.items[0]
+                let accountParty = transaction?.accountParty
+                let amount = transaction?.amount
+                let amountSender = transaction?.amountSender
+                
+                XCTAssertEqual(accountParty?.accountNumber, "2812275553")
+                XCTAssertEqual(accountParty?.accountPrefix, "0")
+                XCTAssertEqual(accountParty?.bankCode, "0800")
+                XCTAssertEqual(accountParty?.bic, "GIBACZPX")
+                XCTAssertEqual(accountParty?.iban, "CZ2908000000002812275553")
+                XCTAssertEqual(accountParty?.partyInfo, "Petr Malý")
+                XCTAssertEqual(accountParty?.partyDescription, "2812275553/0800")
+                XCTAssertEqual(amount?.currency, "CZK")
+                XCTAssertEqual(amount?.precision, 2)
+                XCTAssertEqual(amount?.value, 100)
+                XCTAssertEqual(amountSender?.currency, "CZK")
+                XCTAssertEqual(amountSender?.precision, 2)
+                XCTAssertEqual(amountSender?.value, 100)
+                XCTAssertEqual(transaction?.bookingDate, self.dateTimeFormatter.date(from:  "2014-11-26T00:00:00+01:00" ))
+                XCTAssertEqual(transaction?.cardNumber, 0)
+                XCTAssertEqual(transaction?.constantSymbol, "0558")
+                XCTAssertEqual(transaction?.description, "domácí platba")
+                XCTAssertEqual(transaction?.descriptionEditable, "false")
+                XCTAssertEqual(transaction?.payeeNote, "note for payee")
+                XCTAssertEqual(transaction?.payerNote, "note for payer")
+                XCTAssertEqual(transaction?.specificSymbol, "55")
+                XCTAssertEqual(transaction?.transactionType, "54")
+                XCTAssertEqual(transaction?.valuationDate, self.dateTimeFormatter.date(from:  "2014-11-26T00:00:00+01:00" ))
+                XCTAssertEqual(transaction?.variableSymbol, "0000000009")
+                
+                expectation.fulfill()
+                
+            case .failure(_):
+                XCTFail()
+            }
+        }
+        
+        self.waitForExpectations(timeout: 40.0, handler:nil)
+    }
+    
+    //--------------------------------------------------------------------------
+    func testAccountTransactionsHistoryListPage_1()
+    {
+        self.judgeSession.setNextCase( caseId: "accounts.withId.transactionsHistory.list.page1", xcTestCase: self)
+        
+        let expectation = self.expectation(description: "Response expectation")
+        
+        let parametres = AccountTransactionsHistoryParameters(pagination: Pagination(pageNumber: 1, pageSize: 1))
+        
+        parametres.dateStart = self.dateTimeFormatter.date(from: "2014-06-01T00:00:00+02:00")
+        parametres.dateEnd = self.dateTimeFormatter.date(from: "2014-06-30T00:00:00+02:00")
+        
+        var accountTransactionsHistoryList : PaginatedListResponse<AccountTransaction>? = nil
+        self.client.accounts.withId("CZ5508000000000379554193").transactionsHistory.list(parametres) { result in
+            switch ( result ) {
+            case .success( let list ):
+                accountTransactionsHistoryList = list
+                let transaction = accountTransactionsHistoryList?.items[0]
+                let accountParty = transaction?.accountParty
+                let amount = transaction?.amount
+                let amountSender = transaction?.amountSender
+                
+                XCTAssertEqual(accountParty?.accountNumber, "2812275553")
+                XCTAssertEqual(accountParty?.accountPrefix, "0")
+                XCTAssertEqual(accountParty?.bankCode, "0800")
+                XCTAssertEqual(accountParty?.bic, "GIBACZPX")
+                XCTAssertEqual(accountParty?.iban, "CZ2908000000002812275553")
+                XCTAssertEqual(accountParty?.partyInfo, "Petr Malý")
+                XCTAssertEqual(accountParty?.partyDescription, "2812275553/0800")
+                XCTAssertEqual(amount?.currency, "CZK")
+                XCTAssertEqual(amount?.precision, 2)
+                XCTAssertEqual(amount?.value, 200)
+                XCTAssertEqual(amountSender?.currency, "CZK")
+                XCTAssertEqual(amountSender?.precision, 2)
+                XCTAssertEqual(amountSender?.value, 200)
+                XCTAssertEqual(transaction?.bookingDate, self.dateTimeFormatter.date(from:  "2014-11-26T00:00:00+01:00" ))
+                XCTAssertEqual(transaction?.cardNumber, 0)
+                XCTAssertEqual(transaction?.constantSymbol, "0558")
+                XCTAssertEqual(transaction?.description, "domácí platba")
+                XCTAssertEqual(transaction?.descriptionEditable, "false")
+                XCTAssertEqual(transaction?.payeeNote, "note for payee")
+                XCTAssertEqual(transaction?.payerNote, "note for payer")
+                XCTAssertEqual(transaction?.specificSymbol, "55")
+                XCTAssertEqual(transaction?.transactionType, "54")
+                XCTAssertEqual(transaction?.valuationDate, self.dateTimeFormatter.date(from:  "2014-11-26T00:00:00+01:00" ))
+                XCTAssertEqual(transaction?.variableSymbol, "0000000009")
+                
+                expectation.fulfill()
+                
+            case .failure(_):
+                XCTFail()
+            }
+        }
+        
+        self.waitForExpectations(timeout: 40.0, handler:nil)
+    }
 
     //--------------------------------------------------------------------------
     func testAccountsWithIdReservationsList()

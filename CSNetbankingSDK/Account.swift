@@ -100,6 +100,13 @@ public class Account: WebApiEntity
     }
     
     /**
+     * Convenience property for AccountTransactionsHistoryResource.
+     */
+    public var transactionsHistoryResource: AccountTransactionsHistoryResource {
+        return self.accountResource.transactionsHistory
+    }
+    
+    /**
      * Convenience property for AccountServicesResource.
      */
     public var servicesResource: AccountServicesResource {

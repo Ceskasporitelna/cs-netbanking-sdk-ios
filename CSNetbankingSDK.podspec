@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   Netbanking SDK allows you to interact with the banking backend of Česká spořitelna a.s. easily.
                    DESC
-  s.dependency   "CSCoreSDK", "~> 1.0"
+  s.dependency   "CSCoreSDK", "~> 2.0"
 
   s.homepage     = "https://developers.csas.cz"
   s.license      = "TBD"

@@ -48,6 +48,14 @@ public class AccountResource:  NetbankingInstanceResource, GetEnabled, UpdateEna
     }
     
     /**
+     * Get information about the account's transactions history
+     */
+    //--------------------------------------------------------------------------
+    public var transactionsHistory: AccountTransactionsHistoryResource {
+        return AccountTransactionsHistoryResource( path: self.customPath + "/transactions", client: self.client )
+    }
+    
+    /**
      * Get information about the account's reservations
      */
     //--------------------------------------------------------------------------

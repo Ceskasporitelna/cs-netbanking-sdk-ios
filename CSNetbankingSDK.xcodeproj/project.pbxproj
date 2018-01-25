@@ -362,6 +362,10 @@
 		19F530FE1D73477000CE6218 /* Contribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F530FD1D73477000CE6218 /* Contribution.swift */; };
 		19F531001D73488600CE6218 /* Supplementary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F530FF1D73488600CE6218 /* Supplementary.swift */; };
 		19F531021D7349DC00CE6218 /* PensionBeneficiaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F531011D7349DC00CE6218 /* PensionBeneficiaries.swift */; };
+		235BD58220178D9300BF9B85 /* AccountTransactionsHistoryResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235BD58120178D9300BF9B85 /* AccountTransactionsHistoryResource.swift */; };
+		235BD58420178E3900BF9B85 /* AccountTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235BD58320178E3900BF9B85 /* AccountTransaction.swift */; };
+		235BD58620178E9B00BF9B85 /* AccountTransactionsHistoryParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235BD58520178E9B00BF9B85 /* AccountTransactionsHistoryParameters.swift */; };
+		235BD5882017905200BF9B85 /* AccountParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235BD5872017905200BF9B85 /* AccountParty.swift */; };
 		26651CED1E0D647100B10412 /* CSCoreSDK.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26651CEC1E0D647100B10412 /* CSCoreSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		509705191C8D97C000DDDD6B /* CSNetbankingSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 509705181C8D97C000DDDD6B /* CSNetbankingSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		509705201C8D97C100DDDD6B /* CSNetbankingSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509705151C8D97C000DDDD6B /* CSNetbankingSDK.framework */; };
@@ -754,6 +758,10 @@
 		19F530FD1D73477000CE6218 /* Contribution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contribution.swift; sourceTree = "<group>"; };
 		19F530FF1D73488600CE6218 /* Supplementary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Supplementary.swift; sourceTree = "<group>"; };
 		19F531011D7349DC00CE6218 /* PensionBeneficiaries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PensionBeneficiaries.swift; sourceTree = "<group>"; };
+		235BD58120178D9300BF9B85 /* AccountTransactionsHistoryResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTransactionsHistoryResource.swift; sourceTree = "<group>"; };
+		235BD58320178E3900BF9B85 /* AccountTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTransaction.swift; sourceTree = "<group>"; };
+		235BD58520178E9B00BF9B85 /* AccountTransactionsHistoryParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTransactionsHistoryParameters.swift; sourceTree = "<group>"; };
+		235BD5872017905200BF9B85 /* AccountParty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountParty.swift; sourceTree = "<group>"; };
 		263510A01DE82742005779BA /* Fastfile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		263510A21DE82A68005779BA /* CSCoreSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CSCoreSDK.framework; path = ../../Build/iOS/CSCoreSDK.framework; sourceTree = "<group>"; };
 		26651CEC1E0D647100B10412 /* CSCoreSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CSCoreSDK.framework; path = Carthage/Build/iOS/CSCoreSDK.framework; sourceTree = "<group>"; };
@@ -802,6 +810,7 @@
 				191D81C71DC5CCC6006E40FD /* PaymentsParameters.swift */,
 				191D81CB1DC5EBEF006E40FD /* StandingOrdersParameters.swift */,
 				191D81CF1DC5EF89006E40FD /* StatementsParameters.swift */,
+				235BD58520178E9B00BF9B85 /* AccountTransactionsHistoryParameters.swift */,
 			);
 			name = Parameters;
 			sourceTree = "<group>";
@@ -963,6 +972,8 @@
 				19AF86DD1D28FC0F00882C56 /* SubAccount.swift */,
 				19AF86E91D28FD6300882C56 /* TransferReceiver.swift */,
 				19AC00431CB91D07006B117D /* TransferResponse.swift */,
+				235BD58320178E3900BF9B85 /* AccountTransaction.swift */,
+				235BD5872017905200BF9B85 /* AccountParty.swift */,
 			);
 			name = Accounts;
 			sourceTree = "<group>";
@@ -1288,6 +1299,7 @@
 				19AC003F1CB91C51006B117D /* AccountTransferResource.swift */,
 				19AC004B1CB931C3006B117D /* SubAccountResource.swift */,
 				19469D681D7F490E00F1C798 /* SubAccountStatementsResource.swift */,
+				235BD58120178D9300BF9B85 /* AccountTransactionsHistoryResource.swift */,
 			);
 			name = Accounts;
 			sourceTree = "<group>";
@@ -1875,6 +1887,8 @@
 				19AF86E81D28FD2D00882C56 /* Saving.swift in Sources */,
 				1906A4BC1DE2255A005BAFF7 /* SettingsRequest.swift in Sources */,
 				19431DCD1DB36A9A00338D8A /* LockReason.swift in Sources */,
+				235BD58420178E3900BF9B85 /* AccountTransaction.swift in Sources */,
+				235BD5882017905200BF9B85 /* AccountParty.swift in Sources */,
 				19431DD31DB36E5A00338D8A /* CardAction.swift in Sources */,
 				197971A11DC7B8F200EFEAA5 /* BudgetsUpdateRequest.swift in Sources */,
 				19431DC31DB35B2700338D8A /* ProductType.swift in Sources */,
@@ -1950,6 +1964,7 @@
 				19363C981DC1118D005558B5 /* ProductCode.swift in Sources */,
 				190C8B1D1DC253700060356E /* ContactType.swift in Sources */,
 				19F530F61D72ECA200CE6218 /* ProductAccount.swift in Sources */,
+				235BD58620178E9B00BF9B85 /* AccountTransactionsHistoryParameters.swift in Sources */,
 				19F530CE1D70574400CE6218 /* ContractEvent.swift in Sources */,
 				19431DDD1DB3782400338D8A /* StandingOrderSubtype.swift in Sources */,
 				19B3564B1DBFCEC400A59125 /* InsuranceServiceGroup.swift in Sources */,
@@ -2003,6 +2018,7 @@
 				19E5C5F61D7AF6D800F23DBF /* SettingsResource.swift in Sources */,
 				19E5C6221D7B3C9500F23DBF /* CreatePromotionResponse.swift in Sources */,
 				19431DEB1DB3917400338D8A /* TransactionField.swift in Sources */,
+				235BD58220178D9300BF9B85 /* AccountTransactionsHistoryResource.swift in Sources */,
 				19DCCE741DBE8B9600CEE760 /* CardDesign.swift in Sources */,
 				19363C9A1DC113D1005558B5 /* OrderCategory.swift in Sources */,
 				19E5C63C1D7BF57A00F23DBF /* PluginResource.swift in Sources */,
